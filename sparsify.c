@@ -29,6 +29,8 @@
 static double resolve_overlap(struct world *world, struct pair *newpos, int i) {
   double overlap = 0;
   struct vertex *v1 = &world->vertices[i];
+  if (v1->weight <= 0)
+    return 0;
   struct pair force = {0};
   for (int j = 0; j < world->nitems; ++j) {
     struct vertex *v2 = &world->vertices[j];

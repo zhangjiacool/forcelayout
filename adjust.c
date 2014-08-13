@@ -139,7 +139,6 @@ void compare_world(struct compare_data *compare)
   for (int i = 0; i < COMPARE_STEPS; ++i) {
     if (compare->array[i].badness < best_compare.badness) {
       best_compare = compare->array[i];
-      printf("badness %f mirror %i rotate %f\n", best_compare.badness, best_compare.mirror, best_compare.rotate);
     }
   }
   
@@ -157,11 +156,9 @@ void compare_world(struct compare_data *compare)
   for (int i = 0; i < COMPARE_STEPS; ++i) {
     if (compare->array[i].badness < best_compare.badness) {
       best_compare = compare->array[i];
-      printf("badness %f mirror %i rotate %f\n", best_compare.badness, best_compare.mirror, best_compare.rotate);
     }
   }
 
-  printf("best compare mirror %i rotate %f\n", best_compare.mirror, best_compare.rotate);
   translate_world(compare->world, &best_compare);
 }
 
